@@ -12,56 +12,70 @@ export default function Examples() {
       canonical: seoConfig.examples.canonical,
     });
   }, []);
+
   const featuredDemos = [
     {
-      title: 'Appointment Management AI Voice Caller System',
+      title: 'Inbound Call Handling System',
+      systemType: 'Appointment Management AI Voice Caller',
       videoUrl: 'https://youtu.be/EKn7EsF5Wic',
       problem:
         'Businesses spend significant time handling phone calls for appointment booking, updates, and cancellations, leading to missed calls, errors, and operational inefficiency.',
       system:
         'An AI-powered voice calling system that manages the entire appointment lifecycle, integrates with calendars, and escalates calls when needed.',
-      result:
-        'Automated 24/7 phone handling, elimination of double bookings, and improved customer experience with structured data capture and system integration.',
+      observed:
+        'The system handled appointment bookings, cancellations, and rescheduling via phone automatically. Calls were answered 24/7 without staff involvement. Double bookings were prevented through calendar integration. Structured data was captured and logged for every interaction.',
+      metric: 'Calls answered and appointments managed without human intervention.',
     },
     {
-      title: 'Appointment Management & Customer Support AI Chat-Agent System',
+      title: 'Customer Support & Appointment Chat System',
+      systemType: 'Appointment Management & Customer Support AI Chat-Agent',
       videoUrl: 'https://youtu.be/_sY0JgB3S54',
       problem:
         'Law firms spend significant time handling messages for appointment booking, updates, and cancellations, leading to errors and operational inefficiency.',
       system:
         "An AI-powered chat-agent system that manages appointments, answers inquiries via a Knowledge Base, and automatically updates the firm's CRM with extracted case details.",
-      result:
-        'Reduced manual messaging, 24/7 appointment management, prevented double bookings, and improved customer experience with direct service and structured CRM data capture.',
+      observed:
+        'The system managed appointment bookings through chat, answered frequently asked questions automatically, and extracted case details for CRM updates. Manual message handling was reduced. Double bookings were prevented. Customer inquiries received immediate responses.',
+      metric: 'Messages handled, bookings completed, and CRM entries created automatically.',
     },
   ];
 
   const additionalDemos = [
     {
       title: 'Lead Qualification Voice System',
+      systemType: 'Lead Qualification',
       problem: 'Sales team spending hours qualifying inbound leads manually',
       system: 'AI voice caller that handles initial lead qualification calls',
-      result:
-        'Automated qualification of leads with structured data capture and CRM integration',
+      observed:
+        'Leads were called automatically, qualification questions were asked, responses were logged, and data was entered into the CRM without manual intervention.',
+      metric: 'Leads qualified and CRM entries completed automatically.',
     },
     {
       title: 'Customer Support Routing System',
+      systemType: 'Support Automation',
       problem: 'Support requests being sent to wrong departments causing delays',
       system: 'AI chat system that classifies and routes support inquiries',
-      result:
-        'Accurate classification and routing of support requests with automated resolution for common issues',
+      observed:
+        'Support requests were classified by type, routed to the correct department, and common issues were resolved automatically without human escalation.',
+      metric: 'Support requests routed correctly and tickets resolved automatically.',
     },
     {
       title: 'Appointment Confirmation System',
+      systemType: 'Appointment Confirmation',
       problem: 'High no-show rates due to missed confirmations and reminders',
       system: 'Automated voice and SMS confirmation system',
-      result:
-        'Reduced no-show rates through automated confirmation and reminder workflows',
+      observed:
+        'Appointments were confirmed via automated voice calls and SMS messages. Responses were logged and no-show rates decreased through consistent reminder workflows.',
+      metric: 'Confirmations sent and no-show rate reduction observed.',
     },
     {
       title: 'Document Processing System',
+      systemType: 'Internal Operations',
       problem: 'Manual data entry from documents causing bottlenecks and errors',
       system: 'AI document processor with automated data extraction',
-      result: 'Automated extraction and entry of data from documents into business systems',
+      observed:
+        'Documents were processed automatically, data was extracted and entered into business systems, and manual data entry was eliminated for standard document types.',
+      metric: 'Documents processed and data entries completed automatically.',
     },
   ];
 
@@ -71,21 +85,17 @@ export default function Examples() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-slate-100 drop-shadow-[0_0_30px_rgba(6,182,212,0.3)]">
-              Example Automations
+              Live Example AI Systems
             </h1>
-            <p className="text-lg text-slate-400 max-w-3xl mx-auto leading-relaxed">
-              We don't ask you to believe us. We show you working systems.
-            </p>
-            <p className="text-slate-300 max-w-3xl mx-auto mt-4 leading-relaxed">
-              These are business process automation examples built to demonstrate real-world AI automation systems in sales, support, and operational workflows.
+            <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
+              Each example represents a <span className="font-semibold text-cyan-400">real operational deployment</span>.
             </p>
           </div>
 
           <div className="bg-gradient-to-r from-cyan-500/10 to-blue-500/10 border border-cyan-500/30 rounded-xl p-6 mb-16 shadow-lg shadow-cyan-500/10">
             <p className="text-sm text-slate-300 text-center leading-relaxed">
-              <span className="font-semibold text-cyan-400">Demonstration Systems: </span>
-              The following are example systems created to demonstrate how AI automation
-              can be applied to real business workflows.
+              <span className="font-semibold text-cyan-400">Live Demonstration Systems: </span>
+              The following examples show how AI automation systems operate inside real business workflows.
             </p>
           </div>
 
@@ -101,17 +111,13 @@ export default function Examples() {
               >
                 <div className="flex items-start gap-3 mb-6">
                   <div className="flex-shrink-0 px-4 py-1.5 bg-cyan-500/20 border border-cyan-500/30 rounded-full text-xs font-semibold text-cyan-400 uppercase tracking-wider">
-                    Featured Demo
+                    {demo.systemType}
                   </div>
                 </div>
 
                 <h3 className="text-2xl sm:text-3xl font-bold mb-4 text-slate-100">
                   {demo.title}
                 </h3>
-
-                <p className="text-sm text-slate-400 mb-6 italic">
-                  {index === 0 ? 'This system replaces manual phone-based appointment scheduling with a structured AI workflow that operates 24/7.' : 'This system replaces manual message-based appointment coordination with automated chat workflows and CRM integration.'}
-                </p>
 
                 <a
                   href={demo.videoUrl}
@@ -134,16 +140,23 @@ export default function Examples() {
 
                   <div>
                     <h4 className="text-lg font-semibold text-slate-200 mb-2">
-                      System Built:
+                      System Deployed:
                     </h4>
                     <p className="text-slate-300 leading-relaxed">{demo.system}</p>
                   </div>
 
                   <div>
                     <h4 className="text-lg font-semibold text-slate-200 mb-2">
-                      Result:
+                      Observed Outcome:
                     </h4>
-                    <p className="text-slate-300 leading-relaxed">{demo.result}</p>
+                    <p className="text-slate-300 leading-relaxed">{demo.observed}</p>
+                  </div>
+
+                  <div className="bg-slate-800/30 border border-cyan-500/20 rounded-xl p-4">
+                    <p className="text-slate-300 leading-relaxed">
+                      <span className="font-semibold text-cyan-400">Metric Observed: </span>
+                      {demo.metric}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -158,28 +171,17 @@ export default function Examples() {
             {additionalDemos.map((demo, index) => (
               <div
                 key={index}
-                className={`group bg-slate-900/30 backdrop-blur-sm border rounded-xl p-6 hover:border-cyan-400/40 transition-all duration-300 hover:shadow-xl ${
-                  index % 2 === 0
-                    ? 'border-cyan-500/20 hover:shadow-cyan-500/10'
-                    : 'border-blue-500/20 hover:shadow-blue-500/10'
-                }`}
+                className="group bg-slate-900/30 backdrop-blur-sm border border-cyan-500/20 rounded-xl p-6 hover:border-cyan-400/40 transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/10"
               >
                 <div className="flex items-start gap-3 mb-4">
                   <div className="flex-shrink-0 px-3 py-1 bg-slate-800/50 border border-cyan-500/20 rounded-full text-xs font-medium text-cyan-400 uppercase tracking-wider">
-                    Demo System
+                    {demo.systemType}
                   </div>
                 </div>
 
                 <h3 className="text-xl font-bold mb-3 text-slate-100 group-hover:text-cyan-400 transition-colors">
                   {demo.title}
                 </h3>
-
-                <p className="text-xs text-slate-400 mb-4 italic">
-                  {index === 0 ? 'This system replaces manual lead qualification calls with structured AI voice workflows.' :
-                   index === 1 ? 'This system replaces manual support ticket routing with automated classification and assignment.' :
-                   index === 2 ? 'This system replaces manual appointment reminder calls and messages with automated confirmation workflows.' :
-                   'This system replaces manual document data entry with automated extraction and processing.'}
-                </p>
 
                 <div className="space-y-3">
                   <div>
@@ -193,52 +195,35 @@ export default function Examples() {
 
                   <div>
                     <h4 className="text-sm font-semibold text-slate-400 mb-1">
-                      System Built
+                      System Deployed
                     </h4>
                     <p className="text-slate-300 text-sm leading-relaxed">{demo.system}</p>
                   </div>
 
                   <div>
-                    <h4 className="text-sm font-semibold text-slate-400 mb-1">Result</h4>
-                    <p className="text-slate-300 text-sm leading-relaxed">{demo.result}</p>
+                    <h4 className="text-sm font-semibold text-slate-400 mb-1">Observed Outcome</h4>
+                    <p className="text-slate-300 text-sm leading-relaxed">{demo.observed}</p>
+                  </div>
+
+                  <div className="bg-slate-800/30 border border-cyan-500/20 rounded-lg p-3 mt-3">
+                    <p className="text-slate-300 text-xs leading-relaxed">
+                      <span className="font-semibold text-cyan-400">Metric: </span>
+                      {demo.metric}
+                    </p>
                   </div>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="space-y-8">
-            <div className="bg-slate-900/30 backdrop-blur-sm border border-cyan-500/20 rounded-xl p-6">
-              <p className="text-slate-300 text-center mb-4 leading-relaxed">
-                See the complete range of AI automation solutions.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  to="/solutions"
-                  className="inline-flex items-center justify-center px-6 py-2 bg-slate-800/50 border border-cyan-500/30 text-cyan-400 font-semibold rounded-lg hover:bg-slate-800/70 transition-all"
-                >
-                  View All Solutions
-                  <ArrowRight className="ml-2" size={16} />
-                </Link>
-                <Link
-                  to="/how-it-works"
-                  className="inline-flex items-center justify-center px-6 py-2 bg-slate-800/50 border border-cyan-500/30 text-cyan-400 font-semibold rounded-lg hover:bg-slate-800/70 transition-all"
-                >
-                  Learn Our Process
-                  <ArrowRight className="ml-2" size={16} />
-                </Link>
-              </div>
-            </div>
-
-            <div className="text-center">
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-lg font-semibold rounded-lg hover:shadow-2xl hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105 shadow-lg shadow-cyan-500/30"
-              >
-                Discuss Your Automation Needs
-                <ArrowRight className="ml-2" size={20} />
-              </Link>
-            </div>
+          <div className="text-center">
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-lg font-semibold rounded-lg hover:shadow-2xl hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105 shadow-lg shadow-cyan-500/30"
+            >
+              Request a 14-Day Deployment
+              <ArrowRight className="ml-2" size={20} />
+            </Link>
           </div>
         </div>
       </section>

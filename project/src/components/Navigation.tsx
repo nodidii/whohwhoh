@@ -64,7 +64,7 @@ export default function Navigation() {
               to="/contact"
               className="px-6 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-sm font-semibold rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105 shadow-cyan-500/30"
             >
-              Request an Automation Audit
+              Request a 14-Day Deployment
             </Link>
           </div>
 
@@ -97,7 +97,7 @@ export default function Navigation() {
               to="/contact"
               className="block px-4 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-sm font-semibold rounded-lg text-center hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300 shadow-cyan-500/30"
             >
-              Request an Automation Audit
+              Request a 14-Day Deployment
             </Link>
           </div>
         </div>

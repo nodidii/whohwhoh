@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FileSearch, Compass, Rocket, Shield, FileText, CheckCircle } from 'lucide-react';
+import { Target, Rocket, CheckSquare, ArrowRight } from 'lucide-react';
 import { setPageMeta, seoConfig } from '../utils/seo';
 
 export default function HowItWorks() {
@@ -12,63 +12,50 @@ export default function HowItWorks() {
       canonical: seoConfig.howItWorks.canonical,
     });
   }, []);
+
   const steps = [
     {
       number: '1',
-      title: 'Audit & Workflow Mapping',
-      subtitle: 'Understanding Before Building',
-      description:
-        'We analyze how your operations actually function — not how they are described.',
+      title: 'Define the Outcome',
+      subtitle: 'Outcome Selection & Scope Definition',
+      description: 'We identify one operational bottleneck and define:',
       details: [
-        'Process documentation and workflow mapping',
-        'Identification of manual bottlenecks',
-        'Review of existing tools and integrations',
-        'Definition of automation boundaries',
-        'Clear documentation of findings',
+        'The exact outcome to automate',
+        'The metric that determines success',
+        'The boundaries of the deployment',
       ],
-      output: 'A structured system map and prioritized automation opportunities.',
-      icon: FileSearch,
+      result: 'A clearly scoped system with a single responsibility.',
+      icon: Target,
     },
     {
       number: '2',
-      title: 'Custom System Design',
-      subtitle: 'Designed for Reality, Not Templates',
-      description: 'Systems are designed specifically around your workflows.',
+      title: 'Deploy Live for 14 Days',
+      subtitle: '14-Day Live Deployment',
+      description: 'The system is deployed directly into your production environment.',
       details: [
-        'Custom system architecture',
-        'Integration planning with your current stack',
-        'AI behavior constraints and logic design',
-        'User flows and escalation rules',
-        'Testing and refinement before deployment',
+        'The system operates live',
+        'All actions are logged',
+        'AI behavior is constrained',
+        'Escalation rules are enforced',
       ],
-      output: 'No generic stacks. No pre-built templates.',
-      icon: Compass,
+      result: 'The deployment runs for 14 days.',
+      icon: Rocket,
     },
     {
       number: '3',
-      title: 'Deployment & Optimization',
-      subtitle: 'Infrastructure, Not One-Off Delivery',
-      description:
-        'Systems are deployed to production with monitoring and control in place.',
+      title: 'Review & Decide',
+      subtitle: 'Decision Point',
+      description: 'At the end of the deployment:',
       details: [
-        'Production deployment',
-        'Performance and accuracy monitoring',
-        'Logging and failure handling',
-        'Ongoing refinement based on real usage',
-        'Maintenance as systems evolve',
+        'You review system logs',
+        'You see what was handled automatically',
+        'You evaluate the operational impact',
       ],
-      output: '',
-      icon: Rocket,
+      result: 'You decide to: Remove the system, Continue operating it, or Expand its scope',
+      note: 'No obligation beyond the deployment window.',
+      icon: CheckSquare,
     },
   ];
-
-  const riskReductions = [
-    'Uncontrolled AI behavior',
-    'Hidden dependencies',
-    'Operational surprises',
-  ];
-
-  const designPrinciples = ['Understandable', 'Documented', 'Maintainable'];
 
   return (
     <div className="relative">
@@ -76,32 +63,18 @@ export default function HowItWorks() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-slate-100 drop-shadow-[0_0_30px_rgba(6,182,212,0.3)]">
-              How It Works
+              A Controlled AI Deployment Model
             </h1>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-              A controlled, predictable process focused on stability, clarity, and
-              long-term operability.
-            </p>
-            <p className="text-lg text-slate-400 mt-4 max-w-2xl mx-auto">
-              This page exists to explain how systems are delivered.
-            </p>
-            <p className="text-slate-300 mt-6 max-w-2xl mx-auto leading-relaxed">
-              This is the standardized AI automation delivery process used for business automation systems across sales, support, and operations. The process applies to all implementations regardless of industry or scale.
+              Designed to prove operational value quickly while avoiding long-term risk.
             </p>
           </div>
 
           <div className="space-y-16">
-            {steps.map((step, index) => {
-              const colors = [
-                { border: 'border-cyan-500/20', hover: 'hover:border-cyan-400/40', shadow: 'hover:shadow-cyan-500/20', icon: 'from-cyan-500/20 to-blue-500/20', iconBorder: 'border-cyan-500/30' },
-                { border: 'border-blue-500/20', hover: 'hover:border-blue-400/40', shadow: 'hover:shadow-blue-500/20', icon: 'from-blue-500/20 to-violet-500/20', iconBorder: 'border-blue-500/30' },
-                { border: 'border-violet-500/20', hover: 'hover:border-violet-400/40', shadow: 'hover:shadow-violet-500/20', icon: 'from-violet-500/20 to-blue-500/20', iconBorder: 'border-violet-500/30' },
-              ];
-              const color = colors[index % colors.length];
-              return (
+            {steps.map((step, index) => (
               <div
                 key={step.number}
-                className={`relative bg-slate-900/30 backdrop-blur-sm border ${color.border} rounded-2xl p-8 sm:p-12 ${color.hover} transition-all duration-300 hover:shadow-2xl ${color.shadow}`}
+                className="relative bg-slate-900/30 backdrop-blur-sm border border-cyan-500/20 rounded-2xl p-8 sm:p-12 hover:border-cyan-400/40 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/20"
               >
                 <div className="absolute top-6 left-6 text-8xl font-bold text-cyan-500/5">
                   {step.number}
@@ -109,28 +82,26 @@ export default function HowItWorks() {
 
                 <div className="relative z-10">
                   <div className="flex items-center gap-4 mb-6">
-                    <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${color.icon} border ${color.iconBorder} flex items-center justify-center shadow-lg`}>
+                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 flex items-center justify-center shadow-lg">
                       <step.icon className="text-cyan-400" size={32} />
                     </div>
                     <div>
-                      <h2 className="text-3xl sm:text-4xl font-bold text-slate-100">
-                        {step.title}
+                      <h2 className="text-2xl sm:text-3xl font-bold text-slate-100">
+                        Step {step.number} — {step.title}
                       </h2>
-                      <p className="text-cyan-400 font-semibold mt-1">
-                        {step.subtitle}
-                      </p>
+                      <p className="text-cyan-400 font-medium mt-1">{step.subtitle}</p>
                     </div>
                   </div>
 
-                  <p className="text-lg text-slate-300 mb-8 leading-relaxed">
+                  <p className="text-lg text-slate-300 mb-6 leading-relaxed">
                     {step.description}
                   </p>
 
                   <div className="mb-6">
-                    <h3 className="text-lg font-semibold text-slate-200 mb-4">
-                      This includes:
-                    </h3>
-                    <ul className="space-y-3">
+                    {index === 2 ? null : <h3 className="text-md font-semibold text-slate-200 mb-3">
+                      {index === 0 ? 'This includes defining:' : 'During this phase:'}
+                    </h3>}
+                    <ul className="space-y-2">
                       {step.details.map((detail, detailIndex) => (
                         <li
                           key={detailIndex}
@@ -143,96 +114,30 @@ export default function HowItWorks() {
                     </ul>
                   </div>
 
-                  {step.output && (
-                    <div className="bg-slate-800/30 border border-cyan-500/20 rounded-xl p-6">
-                      <p className="text-slate-300">
-                        <span className="font-semibold text-cyan-400">Output: </span>
-                        {step.output}
-                      </p>
-                    </div>
-                  )}
+                  <div className="bg-slate-800/30 border border-cyan-500/20 rounded-xl p-6">
+                    <p className="text-slate-300 leading-relaxed">
+                      <span className="font-semibold text-cyan-400">
+                        {index === 2 ? 'You then decide to:' : 'Result:'}
+                      </span>{' '}
+                      {step.result}
+                    </p>
+                    {step.note && (
+                      <p className="text-slate-400 mt-3 text-sm italic">{step.note}</p>
+                    )}
+                  </div>
                 </div>
               </div>
-            );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <section className="relative py-24 px-4 sm:px-6 lg:px-8 bg-slate-900/20">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 mb-6">
-              <Shield className="text-cyan-400" size={40} />
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-slate-100">
-              Risk Reduction by Design
-            </h2>
+            ))}
           </div>
 
-          <div className="bg-slate-900/30 backdrop-blur-sm border border-cyan-500/20 rounded-2xl p-8 sm:p-12 mb-8">
-            <p className="text-lg text-slate-300 mb-6 leading-relaxed">
-              The process is intentionally structured to reduce:
-            </p>
-            <ul className="space-y-4 mb-8">
-              {riskReductions.map((risk, index) => (
-                <li
-                  key={index}
-                  className="flex items-start gap-3 text-slate-300 text-lg"
-                >
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-red-500/20 border border-red-500/50 flex items-center justify-center mt-1">
-                    <div className="w-2 h-2 rounded-full bg-red-500" />
-                  </div>
-                  <span>{risk}</span>
-                </li>
-              ))}
-            </ul>
-
-            <p className="text-lg text-slate-300 mb-6 leading-relaxed">
-              Every system is designed to be:
-            </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              {designPrinciples.map((principle, index) => (
-                <div
-                  key={index}
-                  className="flex items-center gap-3 bg-slate-800/30 border border-cyan-500/20 rounded-xl p-4"
-                >
-                  <CheckCircle className="text-cyan-400 flex-shrink-0" size={20} />
-                  <span className="text-slate-200 font-medium">{principle}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="relative py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-gradient-to-br from-slate-900/50 to-slate-800/30 backdrop-blur-sm border border-cyan-500/30 rounded-2xl p-8 sm:p-12 text-center">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 mb-6">
-              <FileText className="text-cyan-400" size={28} />
-            </div>
-            <p className="text-lg text-slate-300 mb-6 leading-relaxed">
-              For strategic context and engagement models, view the Growth Framework.
-            </p>
-            <p className="text-sm text-slate-400 mb-8 leading-relaxed">
-              Every system delivered through this process prioritizes risk reduction, operational stability, and long-term maintainability over rapid feature deployment.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/solutions"
-                className="inline-flex items-center justify-center px-6 py-2 bg-slate-800/50 border border-cyan-500/30 text-cyan-400 font-semibold rounded-lg hover:bg-slate-800/70 transition-all"
-              >
-                View AI Solutions
-                <ArrowRight className="ml-2" size={16} />
-              </Link>
-              <Link
-                to="/growth-framework"
-                className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-lg font-semibold rounded-lg hover:shadow-2xl hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105 shadow-lg shadow-cyan-500/30"
-              >
-                View the Growth Framework
-              </Link>
-            </div>
+          <div className="mt-16 text-center">
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-lg font-semibold rounded-lg hover:shadow-2xl hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105 shadow-lg shadow-cyan-500/30"
+            >
+              Request a 14-Day Deployment
+              <ArrowRight className="ml-2" size={20} />
+            </Link>
           </div>
         </div>
       </section>

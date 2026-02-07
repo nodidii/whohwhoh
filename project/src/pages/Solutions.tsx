@@ -1,15 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  MessageSquare,
-  Phone,
-  Bot,
-  Calendar,
-  Settings,
-  Globe,
-  Cog,
-  ArrowRight,
-} from 'lucide-react';
+import { ArrowRight, Phone, Calendar, Users, MessageSquare, Settings } from 'lucide-react';
 import { setPageMeta, seoConfig } from '../utils/seo';
 
 export default function Solutions() {
@@ -21,174 +12,71 @@ export default function Solutions() {
       canonical: seoConfig.solutions.canonical,
     });
   }, []);
+
   const solutions = [
     {
-      id: 'customer-support',
-      icon: MessageSquare,
-      title: 'AI Customer Support Systems',
-      description:
-        'AI systems that handle repetitive customer inquiries and route complex cases appropriately.',
-      features: [
-        'Automated responses to common questions',
-        'Intelligent case routing based on complexity',
-        'Integration with existing support platforms',
-        'Escalation protocols for human intervention',
-        'Knowledge base integration',
-      ],
-      colors: {
-        border: 'border-cyan-500/20',
-        hoverBorder: 'hover:border-cyan-400/40',
-        shadow: 'hover:shadow-cyan-500/20',
-        iconBg: 'from-cyan-500/20 to-blue-500/20',
-        iconBorder: 'border-cyan-500/30',
-        iconColor: 'text-cyan-400',
-        titleHover: 'group-hover:text-cyan-400',
-        dot: 'bg-cyan-400',
-      },
-    },
-    {
-      id: 'voice-callers',
+      id: 'inbound-calls',
       icon: Phone,
-      title: 'AI Voice Callers',
-      description:
-        'Automated voice systems for inbound and outbound calls, qualification, and confirmations.',
-      features: [
-        'Outbound call campaigns for lead qualification',
-        'Inbound call handling and routing',
-        'Appointment confirmations and reminders',
-        'Information gathering and data capture',
-        'Natural conversation flows',
+      title: 'Inbound Call Handling Systems',
+      outcome: 'Inbound calls answered, routed, or booked without staff involvement.',
+      handles: [
+        'Incoming call answering',
+        'Call routing based on intent',
+        'Appointment booking via phone',
+        'Call summaries and logging',
       ],
-      colors: {
-        border: 'border-cyan-500/20',
-        hoverBorder: 'hover:border-cyan-400/40',
-        shadow: 'hover:shadow-cyan-500/20',
-        iconBg: 'from-cyan-500/20 to-blue-500/20',
-        iconBorder: 'border-cyan-500/30',
-        iconColor: 'text-cyan-400',
-        titleHover: 'group-hover:text-cyan-400',
-        dot: 'bg-cyan-400',
-      },
+      metric: 'Calls answered, routed correctly, or booked without human intervention.',
     },
     {
-      id: 'chat-agents',
-      icon: Bot,
-      title: 'AI Chat Agents',
-      description:
-        'Intelligent chat agents for websites and internal use, guiding users through predefined workflows.',
-      features: [
-        'Website visitor engagement and qualification',
-        'Internal employee support systems',
-        'Guided workflow completion',
-        'Information retrieval and delivery',
-        'Multi-channel deployment',
+      id: 'appointments',
+      icon: Calendar,
+      title: 'Appointment Booking & Confirmation Systems',
+      outcome: 'Appointments scheduled and confirmed without manual coordination.',
+      handles: [
+        'Availability checks',
+        'Booking creation',
+        'Confirmation messages',
+        'Reminder follow-ups',
       ],
-      colors: {
-        border: 'border-cyan-500/20',
-        hoverBorder: 'hover:border-cyan-400/40',
-        shadow: 'hover:shadow-cyan-500/20',
-        iconBg: 'from-cyan-500/20 to-blue-500/20',
-        iconBorder: 'border-cyan-500/30',
-        iconColor: 'text-cyan-400',
-        titleHover: 'group-hover:text-cyan-400',
-        dot: 'bg-cyan-400',
-      },
+      metric: 'Bookings completed and reduction in no-shows.',
     },
     {
       id: 'lead-qualification',
-      icon: Calendar,
-      title: 'Lead Qualification & Appointment Automation',
-      description:
-        'End-to-end automation of lead screening, qualification, and meeting scheduling.',
-      features: [
-        'Automated lead screening criteria',
-        'Multi-touch qualification sequences',
-        'Calendar integration and scheduling',
-        'Confirmation and reminder workflows',
-        'CRM integration and data sync',
+      icon: Users,
+      title: 'Lead Qualification & Routing Systems',
+      outcome: 'Leads qualified and routed without manual calls or emails.',
+      handles: [
+        'Lead intake',
+        'Qualification questions',
+        'CRM updates',
+        'Routing to the correct team or pipeline',
       ],
-      colors: {
-        border: 'border-cyan-500/20',
-        hoverBorder: 'hover:border-cyan-400/40',
-        shadow: 'hover:shadow-cyan-500/20',
-        iconBg: 'from-cyan-500/20 to-blue-500/20',
-        iconBorder: 'border-cyan-500/30',
-        iconColor: 'text-cyan-400',
-        titleHover: 'group-hover:text-cyan-400',
-        dot: 'bg-cyan-400',
-      },
+      metric: 'Qualified leads captured and routed correctly.',
+    },
+    {
+      id: 'customer-support',
+      icon: MessageSquare,
+      title: 'Customer Support Automation Systems',
+      outcome: 'Repetitive customer inquiries resolved without escalation.',
+      handles: [
+        'FAQ responses',
+        'Status requests',
+        'Basic troubleshooting',
+        'Ticket creation and tagging',
+      ],
+      metric: 'Tickets resolved without human involvement.',
     },
     {
       id: 'operations',
       icon: Settings,
-      title: 'Internal Operations Automation',
-      description:
-        'Automation of internal processes, task flows, data handling, and reporting.',
-      features: [
-        'Data entry and processing automation',
-        'Cross-system workflow coordination',
-        'Automated reporting and alerts',
-        'Document processing and classification',
-        'Task assignment and tracking',
+      title: 'Internal Operations Automation Systems',
+      outcome: 'Manual internal data handling removed.',
+      handles: [
+        'Cross-platform data updates',
+        'Internal task execution',
+        'System-to-system handoffs',
       ],
-      colors: {
-        border: 'border-cyan-500/20',
-        hoverBorder: 'hover:border-cyan-400/40',
-        shadow: 'hover:shadow-cyan-500/20',
-        iconBg: 'from-cyan-500/20 to-blue-500/20',
-        iconBorder: 'border-cyan-500/30',
-        iconColor: 'text-cyan-400',
-        titleHover: 'group-hover:text-cyan-400',
-        dot: 'bg-cyan-400',
-      },
-    },
-    {
-      id: 'web-apps',
-      icon: Globe,
-      title: 'Custom Websites & Web Applications',
-      description:
-        'Purpose-built websites and internal tools designed to support automation workflows.',
-      features: [
-        'Custom dashboards and interfaces',
-        'Workflow management tools',
-        'Client portals and self-service systems',
-        'Data visualization and reporting',
-        'Integration with automation systems',
-      ],
-      colors: {
-        border: 'border-cyan-500/20',
-        hoverBorder: 'hover:border-cyan-400/40',
-        shadow: 'hover:shadow-cyan-500/20',
-        iconBg: 'from-cyan-500/20 to-blue-500/20',
-        iconBorder: 'border-cyan-500/30',
-        iconColor: 'text-cyan-400',
-        titleHover: 'group-hover:text-cyan-400',
-        dot: 'bg-cyan-400',
-      },
-    },
-    {
-      id: 'custom',
-      icon: Cog,
-      title: 'Custom Automation Systems',
-      description:
-        'Bespoke automation solutions tailored to specific business processes across departments.',
-      features: [
-        'Process analysis and mapping',
-        'Custom workflow design',
-        'Department-specific automation',
-        'Legacy system integration',
-        'Scalable architecture design',
-      ],
-      colors: {
-        border: 'border-cyan-500/20',
-        hoverBorder: 'hover:border-cyan-400/40',
-        shadow: 'hover:shadow-cyan-500/20',
-        iconBg: 'from-cyan-500/20 to-blue-500/20',
-        iconBorder: 'border-cyan-500/30',
-        iconColor: 'text-cyan-400',
-        titleHover: 'group-hover:text-cyan-400',
-        dot: 'bg-cyan-400',
-      },
+      metric: 'Tasks completed automatically without staff input.',
     },
   ];
 
@@ -198,13 +86,13 @@ export default function Solutions() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-slate-100 drop-shadow-[0_0_30px_rgba(6,182,212,0.3)]">
-              Solutions
+              Outcome-Specific AI Automation Systems
             </h1>
-            <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-              Custom AI automation systems designed for your specific business workflows.
+            <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed mb-6">
+              Each system is designed to <span className="font-semibold text-cyan-400">temporarily take over a single operational function</span>, operate live inside your business, and produce <span className="font-semibold text-cyan-400">observable, logged outcomes</span>.
             </p>
-            <p className="text-lg text-slate-400 max-w-3xl mx-auto mt-4 leading-relaxed">
-              These are modular AI automation systems built for specific business processes across sales, customer support, and internal operations. Each solution addresses defined workflows and integrates with your existing business systems.
+            <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+              Systems are deployed individually, not bundled.
             </p>
           </div>
 
@@ -213,83 +101,64 @@ export default function Solutions() {
               <div
                 key={solution.id}
                 id={solution.id}
-                className={`group bg-slate-900/30 backdrop-blur-sm border ${solution.colors.border} rounded-2xl p-8 sm:p-12 ${solution.colors.hoverBorder} transition-all duration-300 hover:shadow-2xl ${solution.colors.shadow}`}
+                className="bg-slate-900/30 backdrop-blur-sm border border-cyan-500/20 rounded-2xl p-8 sm:p-12 hover:border-cyan-400/40 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/20"
               >
                 <div className="flex flex-col md:flex-row gap-8">
                   <div className="flex-shrink-0">
-                    <div className={`w-16 h-16 rounded-xl bg-gradient-to-br ${solution.colors.iconBg} border ${solution.colors.iconBorder} flex items-center justify-center group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
-                      <solution.icon className={solution.colors.iconColor} size={32} />
+                    <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-cyan-500/20 to-blue-500/20 border border-cyan-500/30 flex items-center justify-center hover:scale-110 transition-all duration-300">
+                      <solution.icon className="text-cyan-400" size={32} />
                     </div>
                   </div>
 
                   <div className="flex-grow">
-                    <h2 className={`text-2xl sm:text-3xl font-bold mb-4 text-slate-100 ${solution.colors.titleHover} transition-colors`}>
+                    <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-slate-100">
                       {solution.title}
                     </h2>
-                    <p className="text-lg text-slate-300 mb-4 leading-relaxed">
-                      {solution.description}
-                    </p>
-                    <p className="text-sm text-slate-400 mb-6 leading-relaxed">
-                      <span className="font-semibold">Business Function:</span> {
-                        solution.id === 'customer-support' ? 'Customer service operations — replaces manual ticket triage and repetitive response workflows.' :
-                        solution.id === 'voice-callers' ? 'Sales and support phone operations — replaces manual outbound calling and inbound call handling.' :
-                        solution.id === 'chat-agents' ? 'Digital customer engagement — replaces manual chat-based support and lead qualification.' :
-                        solution.id === 'lead-qualification' ? 'Sales pipeline management — replaces manual lead screening and appointment coordination.' :
-                        solution.id === 'operations' ? 'Internal business operations — replaces manual data processing and cross-system workflows.' :
-                        solution.id === 'web-apps' ? 'Digital infrastructure — provides interfaces for automated workflows and system control.' :
-                        'Custom business process automation — replaces department-specific manual workflows.'
-                      }
-                    </p>
 
-                    <ul className="space-y-3">
-                      {solution.features.map((feature, featureIndex) => (
-                        <li
-                          key={featureIndex}
-                          className="flex items-start gap-3 text-slate-400"
-                        >
-                          <div className={`flex-shrink-0 w-1.5 h-1.5 rounded-full ${solution.colors.dot} mt-2`} />
-                          <span>{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
+                    <div className="mb-6">
+                      <p className="text-sm font-semibold text-cyan-400 mb-2">Outcome:</p>
+                      <p className="text-lg text-slate-300 leading-relaxed">
+                        {solution.outcome}
+                      </p>
+                    </div>
+
+                    <div className="mb-6">
+                      <p className="text-sm font-semibold text-cyan-400 mb-3">
+                        What the system handles automatically:
+                      </p>
+                      <ul className="space-y-2">
+                        {solution.handles.map((item, itemIndex) => (
+                          <li
+                            key={itemIndex}
+                            className="flex items-start gap-3 text-slate-300"
+                          >
+                            <div className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-cyan-400 mt-2" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="bg-slate-800/30 border border-cyan-500/20 rounded-xl p-4">
+                      <p className="text-sm text-slate-300">
+                        <span className="font-semibold text-cyan-400">Measured by: </span>
+                        {solution.metric}
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
 
-          <div className="mt-16 space-y-8">
-            <div className="bg-slate-900/30 backdrop-blur-sm border border-cyan-500/20 rounded-xl p-6">
-              <p className="text-slate-300 text-center mb-4 leading-relaxed">
-                Learn how these systems are built and deployed.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Link
-                  to="/how-it-works"
-                  className="inline-flex items-center justify-center px-6 py-2 bg-slate-800/50 border border-cyan-500/30 text-cyan-400 font-semibold rounded-lg hover:bg-slate-800/70 transition-all"
-                >
-                  View Our Process
-                  <ArrowRight className="ml-2" size={16} />
-                </Link>
-                <Link
-                  to="/growth-framework"
-                  className="inline-flex items-center justify-center px-6 py-2 bg-slate-800/50 border border-cyan-500/30 text-cyan-400 font-semibold rounded-lg hover:bg-slate-800/70 transition-all"
-                >
-                  Explore Engagement Models
-                  <ArrowRight className="ml-2" size={16} />
-                </Link>
-              </div>
-            </div>
-
-            <div className="text-center">
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-lg font-semibold rounded-lg hover:shadow-2xl hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105 shadow-lg shadow-cyan-500/30"
-              >
-                Discuss Your Requirements
-                <ArrowRight className="ml-2" size={20} />
-              </Link>
-            </div>
+          <div className="mt-16 text-center">
+            <Link
+              to="/contact"
+              className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white text-lg font-semibold rounded-lg hover:shadow-2xl hover:shadow-cyan-500/50 transition-all duration-300 hover:scale-105 shadow-lg shadow-cyan-500/30"
+            >
+              Request a 14-Day Deployment
+              <ArrowRight className="ml-2" size={20} />
+            </Link>
           </div>
         </div>
       </section>

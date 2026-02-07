@@ -11,20 +11,50 @@ export default function Team() {
       canonical: seoConfig.team.canonical,
     });
   }, []);
+
   return (
     <div className="relative">
       <section className="relative py-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 text-slate-100">
-              Team
+              Real Operators Behind the Systems
             </h1>
-            <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed">
-              Real people behind the agency.
+            <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed mb-6">
+              We design, deploy, and operate <span className="font-semibold text-cyan-400">production AI automation systems</span> inside live businesses.
             </p>
-            <p className="text-slate-400 max-w-2xl mx-auto mt-4 leading-relaxed">
-              The team designs and implements production-grade AI automation systems for businesses. All systems are built for operational stability, integration with existing infrastructure, and long-term maintainability.
+            <p className="text-slate-400 max-w-2xl mx-auto leading-relaxed mb-2">
+              This is not advisory work.
             </p>
+            <p className="text-slate-400 max-w-2xl mx-auto leading-relaxed">
+              This is not tool reselling.
+            </p>
+            <p className="text-lg text-slate-300 max-w-2xl mx-auto mt-4 leading-relaxed">
+              We take responsibility for systems operating inside real workflows.
+            </p>
+          </div>
+
+          <div className="mb-16">
+            <h2 className="text-2xl font-bold mb-8 text-slate-100 text-center">
+              What the Team Focuses On
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-3xl mx-auto">
+              {[
+                'Operational system design',
+                'Deployment inside existing stacks',
+                'Monitoring and logging',
+                'Failure handling and escalation',
+                'Controlled AI behavior',
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-3 bg-slate-900/30 backdrop-blur-sm border border-cyan-500/20 rounded-xl p-4"
+                >
+                  <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 flex-shrink-0" />
+                  <p className="text-slate-300">{item}</p>
+                </div>
+              ))}
+            </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -90,30 +120,6 @@ export default function Team() {
                   GitHub
                 </a>
               </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="relative py-24 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-slate-900/30 backdrop-blur-sm border border-cyan-500/20 rounded-xl p-8 text-center">
-            <p className="text-lg text-slate-300 mb-6 leading-relaxed">
-              Learn how we build and deploy AI automation systems.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="/how-it-works"
-                className="inline-flex items-center justify-center px-6 py-2 bg-slate-800/50 border border-cyan-500/30 text-cyan-400 font-semibold rounded-lg hover:bg-slate-800/70 transition-all"
-              >
-                View Our Process
-              </a>
-              <a
-                href="/solutions"
-                className="inline-flex items-center justify-center px-6 py-2 bg-slate-800/50 border border-cyan-500/30 text-cyan-400 font-semibold rounded-lg hover:bg-slate-800/70 transition-all"
-              >
-                See Our Solutions
-              </a>
             </div>
           </div>
         </div>
