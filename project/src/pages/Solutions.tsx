@@ -10,6 +10,24 @@ export default function Solutions() {
       description: seoConfig.solutions.description,
       keywords: seoConfig.solutions.keywords,
       canonical: seoConfig.solutions.canonical,
+      schema: {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: 'https://coreflowautomation.net/',
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Solutions',
+            item: 'https://coreflowautomation.net/solutions',
+          },
+        ],
+      },
     });
   }, []);
 

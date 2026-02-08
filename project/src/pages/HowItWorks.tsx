@@ -10,6 +10,24 @@ export default function HowItWorks() {
       description: seoConfig.howItWorks.description,
       keywords: seoConfig.howItWorks.keywords,
       canonical: seoConfig.howItWorks.canonical,
+      schema: {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: 'https://coreflowautomation.net/',
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'How It Works',
+            item: 'https://coreflowautomation.net/how-it-works',
+          },
+        ],
+      },
     });
   }, []);
 

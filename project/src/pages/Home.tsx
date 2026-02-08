@@ -13,6 +13,19 @@ export default function Home() {
       schema: {
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
+        organization: {
+          '@type': 'Organization',
+          name: 'Coreflow Automation',
+          url: 'https://coreflowautomation.net',
+          logo: 'https://coreflowautomation.net/logo.png',
+          description: 'AI automation agency that designs and deploys temporary AI systems removing operational bottlenecks',
+          sameAs: ['https://twitter.com/coreflowai', 'https://linkedin.com/company/coreflow-automation'],
+          contactPoint: {
+            '@type': 'ContactPoint',
+            telephone: '+1-contact-us',
+            contactType: 'Sales',
+          },
+        },
         mainEntity: [
           {
             '@type': 'Question',

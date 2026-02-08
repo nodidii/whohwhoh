@@ -10,6 +10,24 @@ export default function GrowthFramework() {
       description: seoConfig.growthFramework.description,
       keywords: seoConfig.growthFramework.keywords,
       canonical: seoConfig.growthFramework.canonical,
+      schema: {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: 'https://coreflowautomation.net/',
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: 'Growth Framework',
+            item: 'https://coreflowautomation.net/growth-framework',
+          },
+        ],
+      },
     });
   }, []);
 
