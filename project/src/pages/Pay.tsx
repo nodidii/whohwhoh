@@ -15,8 +15,9 @@ export default function Pay() {
         const result = await generateTransakSession();
         setSessionId(result.sessionId);
       } catch (err) {
-        console.error('Failed to fetch Transak session:', err);
-        setError('Failed to load payment widget. Please try again later.');
+        const errorMsg = err instanceof Error ? err.message : String(err);
+        console.error('Failed to fetch Transak session:', errorMsg);
+        setError(errorMsg);
       } finally {
         setLoading(false);
       }
@@ -48,12 +49,15 @@ export default function Pay() {
               )}
 
               {error && (
-                <div className="flex flex-col items-center justify-center" style={{ width: '450px', height: '650px' }}>
-                  <div className="text-center">
+                <div className="flex flex-col items-center justify-center p-6" style={{ width: '450px', minHeight: '650px' }}>
+                  <div className="text-center w-full">
                     <div className="w-16 h-16 rounded-full bg-red-500/20 border border-red-500/50 flex items-center justify-center mx-auto mb-4">
                       <div className="w-8 h-8 rounded-full bg-red-500" />
                     </div>
-                    <p className="text-red-400 mb-4">{error}</p>
+                    <p className="text-red-400 mb-6 text-sm font-medium">Failed to load payment widget</p>
+                    <div className="bg-slate-950/50 border border-red-500/30 rounded-lg p-4 mb-6 text-left max-h-64 overflow-y-auto">
+                      <p className="text-red-300 text-xs font-mono break-words whitespace-pre-wrap">{error}</p>
+                    </div>
                     <button
                       onClick={() => window.location.reload()}
                       className="px-6 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300"
