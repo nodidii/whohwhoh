@@ -1,4 +1,30 @@
+import { useState, useEffect } from 'react';
+import { Loader2 } from 'lucide-react';
+import { generateTransakSession } from '../api/transak-session';
+
 export default function Pay() {
+  const [sessionId, setSessionId] = useState<string | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function fetchSession() {
+      try {
+        setLoading(true);
+        setError(null);
+        const result = await generateTransakSession();
+        setSessionId(result.sessionId);
+      } catch (err) {
+        console.error('Failed to fetch Transak session:', err);
+        setError('Failed to load payment widget. Please try again later.');
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchSession();
+  }, []);
+
   return (
     <div className="relative">
       <section className="relative py-24 px-4 sm:px-6 lg:px-8">
@@ -14,14 +40,40 @@ export default function Pay() {
 
           <div className="flex justify-center">
             <div className="bg-slate-900/30 backdrop-blur-sm border border-cyan-500/20 rounded-2xl p-8 shadow-xl shadow-cyan-500/10">
-              <iframe
-                src="https://global.transak.com/?apiKey=ea49a854-3821-4db4-984b-780109e4e19f&defaultCryptoCurrency=USDT&networks=polygon&walletAddress=0x45361Bd89Edc1d7C69e2D13a1c314f92c71CF4CD&disableWalletAddressForm=true&fiatCurrency=EUR"
-                width="450"
-                height="650"
-                title="Transak Payment"
-                className="rounded-lg"
-                allow="camera;microphone;payment"
-              />
+              {loading && (
+                <div className="flex flex-col items-center justify-center" style={{ width: '450px', height: '650px' }}>
+                  <Loader2 className="w-12 h-12 text-cyan-400 animate-spin mb-4" />
+                  <p className="text-slate-300">Loading secure payment widget...</p>
+                </div>
+              )}
+
+              {error && (
+                <div className="flex flex-col items-center justify-center" style={{ width: '450px', height: '650px' }}>
+                  <div className="text-center">
+                    <div className="w-16 h-16 rounded-full bg-red-500/20 border border-red-500/50 flex items-center justify-center mx-auto mb-4">
+                      <div className="w-8 h-8 rounded-full bg-red-500" />
+                    </div>
+                    <p className="text-red-400 mb-4">{error}</p>
+                    <button
+                      onClick={() => window.location.reload()}
+                      className="px-6 py-2.5 bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold rounded-lg hover:shadow-lg hover:shadow-cyan-500/50 transition-all duration-300"
+                    >
+                      Try Again
+                    </button>
+                  </div>
+                </div>
+              )}
+
+              {!loading && !error && sessionId && (
+                <iframe
+                  src={`https://global.transak.com/?apiKey=ea49a854-3821-4db4-984b-780109e4e19f&sessionId=${sessionId}`}
+                  width="450"
+                  height="650"
+                  title="Transak Payment"
+                  className="rounded-lg"
+                  allow="camera;microphone;payment"
+                />
+              )}
             </div>
           </div>
         </div>
